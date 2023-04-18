@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 
 export const Buttons = ({options, onLeaveFeedback}) => {
 
+    const optionsKey = Object.keys(options)    
     return (
         <>
     <div>
-{options.map((option, index) => {
+{optionsKey.map((option, index) => {
     const btnName = option;
     return (
         <button key={index} type="button" onClick={() => {onLeaveFeedback(option)}}>
@@ -19,6 +20,6 @@ export const Buttons = ({options, onLeaveFeedback}) => {
 };
 
 Buttons.propTypes = {
-    options: PropTypes.arrayOf(PropTypes.string).isRequired, 
+    options: PropTypes.objectOf(PropTypes.number).isRequired, 
     onLeaveFeedback: PropTypes.func.isRequired
 };
